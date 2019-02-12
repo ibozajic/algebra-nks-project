@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 const Footer = () =>(
     <footer>
-        <h1>Footer Info</h1>
+        <hr />
+        <p>NSK Student Projec @ University Algebra, Zagreb, Croatia 2019.</p>
     </footer>
 )
 

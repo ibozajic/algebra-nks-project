@@ -5,6 +5,7 @@ $fontSize: 50px;
 body{
     font-family: $fontFamily;
 }
+
 h1{
     font-size: $fontSize;
 }
@@ -13,4 +14,8 @@ h1{
     font-weight: bold;
     color: red;
     text-decoration: none;
+}
+
+footer p{
+    text-align: center;
 }

@@ -1,9 +1,8 @@
 import React from 'react';
+import ProductCards from './ProductCards';
 
 const HomePage = () => (
-    <div>
-        <h2>Home page</h2>
-    </div>
+    <ProductCards />
 )
 
 export default HomePage;
