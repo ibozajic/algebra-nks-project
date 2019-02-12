@@ -1,6 +1,6 @@
 # NKS Project
 
-This is student project for NKS course on University Collage Algebra
+This is student project for NKS course on University Collage Algebra, Zagreb, Croatia
 
 ## Version 
 * Version 1.0
