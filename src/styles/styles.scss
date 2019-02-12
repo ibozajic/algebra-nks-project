@@ -1,0 +1,16 @@
+$fontFamily: sans-serif;
+$fontSize: 50px;
+
+
+body{
+    font-family: $fontFamily;
+}
+h1{
+    font-size: $fontSize;
+}
+
+.active{
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+}
