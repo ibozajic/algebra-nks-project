@@ -10,10 +10,44 @@ h1{
     font-size: $fontSize;
 }
 
+.jumbotron{
+    background-color: #FD1C00;
+}
+
+.jumbotron img{
+    height: 150px;
+}
+
 .active{
     font-weight: bold;
     color: red;
     text-decoration: none;
+}
+
+.card
+{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.card-img-top
+{
+    width: 70px;
+    height: 150px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.card-title
+{
+    height: 50px;
+}
+
+.card-text
+{
+    font-size: 11pt;
+    height: 100px;
 }
 
 footer p{

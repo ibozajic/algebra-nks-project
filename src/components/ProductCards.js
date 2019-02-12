@@ -1,28 +1,65 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types'
+import { Card, Button } from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {fetchPosts} from '../actions/postAction';
+import ButtonInfo from './ButtonInfo';
 
-class ProductCards extends Component {   
+class ProductCards extends Component {  
+
+    addCart(e){
+        const product_id = e.target.value;
+
+        console.log(product_id);
+    }
+
+    productInfo(e){
+        const product_id = e.target.value;
+
+        console.log(product_id);
+    }
+
+    addFavorites(e){
+        const product_id = e.target.value;
+
+        console.log(product_id);
+    }
+
+    componentWillMount(){
+        this.props.fetchPosts();
+    }
+
     render() {
+        const productItems = this.props.posts.map(product => (
+                <Card key={product.id} style={{ width: '30%' }}>
+                    <Card.Img variant="top" src={product.image_url} />
+                    <Card.Body>
+                        <Card.Title>{product.name}</Card.Title>
+                        <Card.Text>{product.description.substring(0, 100)}</Card.Text>                
+                        <Button variant="primary" name={"add-fav-" + product.id} value={product.id} onClick={this.addFavorites}><i class="fas fa-star"></i></Button>
+                        &nbsp;
+                        <ButtonInfo product_id={product.id} product_name={product.name} product_desc={product.description} product_img={product.image_url} />
+                        &nbsp;
+                        <Button variant="primary" name={"add-cart-" + product.id} value={product.id} onClick={this.addCart}><i class="fas fa-plus-circle"></i></Button>                               
+                    </Card.Body>
+                </Card>           
+        ));
+
         return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-                </Card.Text>                
-                <Button variant="primary"><i class="fas fa-star"></i></Button>
-                &nbsp;
-                <Button variant="primary"><i class="fas fa-info-circle"></i></Button>
-                &nbsp;
-                <Button variant="primary"><i class="fas fa-plus-circle"></i></Button>                               
-            </Card.Body>
-        </Card>
+            <div>
+            {productItems}
+            </div>
         )
     }
 }
 
+ProductCards.PropTypes = {
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.array.isRequired
+}
 
-export default ProductCards;
+const mapStateToProps = state => ({
+    posts: state.posts.items
+});
+
+export default connect(mapStateToProps, { fetchPosts })(ProductCards);

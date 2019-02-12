@@ -6,8 +6,7 @@ const Header = () =>(
     <header>
         <Jumbotron fluid>
             <Container>
-                <h1>Beer Shop</h1>
-                <p>Duff Brewery since 1961.</p>
+                <img src="img/logo-header.jpg" />
             </Container>
         </Jumbotron>       
     </header>
