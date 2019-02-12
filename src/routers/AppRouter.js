@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap';
 
 import HomePage from '../components/HomePage';
 import Add from '../components/Add';
@@ -13,12 +14,20 @@ const AppRouter = () => (
     <BrowserRouter>
         <div>
             <Header/>
-            <Switch>
-                <Route path="/" component={HomePage} exact={true} />
-                <Route path="/add/:item" component={Add} />
-                <Route path="/about" component={About} />
-                <Route component={NotFound404} />
-            </Switch>
+            <Container>
+                <Row>
+                    <Col sm={1}></Col>
+                    <Col sm={10}>
+                        <Switch>
+                            <Route path="/" component={HomePage} exact={true} />
+                            <Route path="/add/:item" component={Add} />
+                            <Route path="/about" component={About} />
+                            <Route component={NotFound404} />
+                        </Switch>                    
+                    </Col>
+                    <Col sm={1}></Col>
+                </Row>
+            </Container>             
             <Footer />
         </div>
     </BrowserRouter>
